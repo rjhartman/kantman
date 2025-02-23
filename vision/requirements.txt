@@ -7,13 +7,13 @@
 annotated-types==0.7.0
     # via pydantic
 black==25.1.0
-    # via -r requirements.in
+    # via -r ./vision/requirements.in
 click==8.1.8
     # via black
 isort==6.0.0
-    # via -r requirements.in
+    # via -r ./vision/requirements.in
 mypy==1.15.0
-    # via -r requirements.in
+    # via -r ./vision/requirements.in
 mypy-extensions==1.0.0
     # via
     #   black
@@ -25,11 +25,11 @@ pathspec==0.12.1
 platformdirs==4.3.6
     # via black
 pydantic==2.10.6
-    # via -r requirements.in
+    # via -r ./vision/requirements.in
 pydantic-core==2.27.2
     # via pydantic
 pyyaml==6.0.2
-    # via -r requirements.in
+    # via -r ./vision/requirements.in
 typing-extensions==4.12.2
     # via
     #   mypy

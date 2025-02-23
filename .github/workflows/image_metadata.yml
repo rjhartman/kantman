@@ -1,0 +1,27 @@
+name: Validate Image Metadata
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install and Configure Python 3.12 Environment
+        run: >
+            sudo apt-get update &&
+            sudo apt-get install python3.12 python3.12-venv &&
+            python3.12 -m venv .venv &&
+            . .venv/bin/activate &&
+            pip install -r requirements.txt
+
+      - name: Validate
+        run: >
+            pip install --force-reinstall ./vision &&
+            python .github/workflows/image_metadata.py

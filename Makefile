@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-REQUIREMENTS_TXT := requirements.txt
+REQUIREMENTS_TXT := vision/requirements.txt
 PYTHON := python3
 
 .PHONY: python-deps
@@ -9,7 +9,7 @@ python-deps:
 .PHONY: compile-requirements
 compile-requirements:
 	pip install pip-tools --upgrade
-	CUSTOM_COMPILE_COMMAND="./make compile-requirements" pip-compile -o $(REQUIREMENTS_TXT)
+	CUSTOM_COMPILE_COMMAND="./make compile-requirements" pip-compile -o $(REQUIREMENTS_TXT) vision/requirements.in
 
 .PHONY: clean
 clean:
