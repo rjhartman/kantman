@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.mypy-type-checker", // Python type checking.
+        "charliermarsh.ruff", // Python linter/formatter.
+        "timonwong.shellcheck", // Linting for shell scripts.
+        "tamasfe.even-better-toml", // Syntax highlighting for TOML.
+    ]
+}

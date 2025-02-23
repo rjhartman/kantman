@@ -11,7 +11,7 @@ make compile-requirements
 set +x
 
 if ! git diff --exit-code; then
-    echo "❌ Python requirements need updating. See diff output above."
+    >&2 echo "❌ Python requirements need updating. Please run ./make compile-requirements."
     exit 1
 fi
 

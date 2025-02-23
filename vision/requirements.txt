@@ -6,8 +6,6 @@
 #
 annotated-types==0.7.0
     # via pydantic
-isort==6.0.0
-    # via -r vision/requirements.in
 mypy==1.15.0
     # via -r vision/requirements.in
 mypy-extensions==1.0.0

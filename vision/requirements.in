@@ -1,5 +1,4 @@
 pyyaml
 pydantic
 mypy
-isort
 ruff
