@@ -11,3 +11,4 @@ if __name__ == "__main__":
         # Print the error string manually to prevent the stack trace from being logged.
         print(err, file=sys.stderr)
         sys.exit(1)
+    print("✅ All image metadata is correct")
