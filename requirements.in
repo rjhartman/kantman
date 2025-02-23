@@ -1,5 +1,5 @@
-# Requirements used for development and on the Pi.
-
--r requirements.in
-
 pyyaml
+pydantic
+black
+mypy
+isort
