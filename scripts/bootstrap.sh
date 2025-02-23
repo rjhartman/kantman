@@ -2,6 +2,4 @@
 
 set -euo pipefail
 
-# Install deps required for picamera Python packages.
-sudo apt install -y python3-libcamera python3-kms++ libcap-dev
-
+sudo apt update && sudo apt install -y make python3.12 python3.12-venv

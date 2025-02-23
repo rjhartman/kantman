@@ -1,3 +1,5 @@
-picamera2
-picamzero
-rpi-libcamera
+# Requirements used for development and on the Pi.
+
+-r requirements.in
+
+pyyaml
