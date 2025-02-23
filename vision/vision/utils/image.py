@@ -1,5 +1,6 @@
 """Utils for loading and handling images."""
 
+import re
 from os import PathLike
 from pathlib import Path
 from typing import Any, Dict, Tuple
@@ -9,6 +10,7 @@ from pydantic import ValidationError
 from pydantic.dataclasses import dataclass
 
 METADATA_FILE_NAME = "metadata.yaml"
+FILE_NAME_REGEX = r"^(?P<dice_set>\d+)_(?P<sides>\d+)_(?P<value>\d+)\.(jpg)|(png)$"
 
 
 @dataclass(frozen=True)
@@ -54,14 +56,26 @@ def load_image(_path: PathLike) -> Tuple[Path, DiceImageMetadata]:
         raise FileNotFoundError(f"{path} does not exist.")
 
     metadata_path = path.parent / METADATA_FILE_NAME
-    metadata = _load_metadata_yaml(metadata_path)
 
-    if path.name not in metadata:
+    try:
+        metadata = _load_metadata_yaml(metadata_path)
+        return path, DiceImageMetadata(**metadata[path.name])
+    except Exception as exc:
+        if isinstance(exc, ValidationError):
+            # The image was referenced in the metadata file, but schema was incorrect.
+            # Reraise this exception.
+            raise exc
+
+    match = re.search(FILE_NAME_REGEX, path.name)
+    if not match:
         raise ValueError(
-            "Expected to find metadata for {path.name} in {metadata_path}."
+            f'{path} was not found in a metadata yaml, and did not match file name regex "{FILE_NAME_REGEX}".'
         )
 
-    return path, DiceImageMetadata(**metadata[path.name])
+    sides = int(match.group("sides"))
+    value = int(match.group("value"))
+
+    return path, DiceImageMetadata(sides=sides, value=value)
 
 
 def validate_image_metadata(directory: PathLike) -> None:
