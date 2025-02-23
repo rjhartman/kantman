@@ -122,3 +122,25 @@ def validate_image_metadata(directory: PathLike) -> None:
         )
         error_string += "\n\t".join(errors)
         raise ValueError(error_string)
+
+
+def process_new(set: int, dice: int, start_value) -> None:
+    """Processes new images.
+
+    Args:
+        set:            The integer id for the dice set
+        dice:           The number of sides on the dice (100 is just a d10 that increments the 10s place)
+        start_value:    The starting value for the dice, most start at 1, but some start at 0
+    """
+    path_to_new = Path("vision/vision/new_images")
+    multiplyer = 10 if dice == 100 else 1
+    image_files = list(path_to_new.iterdir())
+    image_files.sort()
+
+    for i, image in enumerate(image_files):
+        if image.is_file():
+            new_file_name = ("_").join(
+                [str(set), str(dice), str((start_value + i) * multiplyer)]
+            ) + image.suffix
+            image.rename(Path("vision/vision/images") / new_file_name)
+            print(f"Renamed {image} to {new_file_name}")
