@@ -18,5 +18,5 @@ jobs:
           python-version: '3.12'
       - name: Validate Image Metadata
         run: >
-            pip install --force-reinstall ./vision &&
+            python -m pip install --force-reinstall ./vision &&
             python .github/workflows/validate_image_metadata.py
