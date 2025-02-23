@@ -1,5 +1,5 @@
 pyyaml
 pydantic
-black
 mypy
 isort
+ruff

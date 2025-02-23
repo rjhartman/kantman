@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Shell script that wraps Make to perform required setup.
 
 if [ ! -e .venv ]; then
@@ -7,4 +6,4 @@ if [ ! -e .venv ]; then
 fi
 
 . .venv/bin/activate
-make $@
+make "$@"

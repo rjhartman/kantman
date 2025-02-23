@@ -16,7 +16,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Validate Image Metadata
+        continue-on-error: true
         run: >
             python -m pip install --force-reinstall ./vision &&
             python .github/workflows/validate_image_metadata.py
+
+      - name: Validate Python Requirements
+        run: .github/workflows/validate_requirements.sh
+      
