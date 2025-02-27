@@ -2,5 +2,17 @@
 	"name": "Kantman",
 	"build": {
 		"dockerfile": "../Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"redhat.vscode-yaml",
+				"foxundermoon.shell-format",
+				"ms-python.python",
+				"christian-kohler.path-intellisense",
+				"ms-vscode.makefile-tools",
+				"aaron-bond.better-comments"
+			]
+		}
 	}
 }
