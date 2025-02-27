@@ -7,7 +7,7 @@ WORKDIR /kantman
 
 # Setup noninteractive env vars for dependencies
 ENV DEBIAN_FRONTEND=noninteractive
-ENV TZ=Etc/UTC
+ENV TZ=America/Chicago
 ENV READTHEDOCS=true
 
 # Run scripts/init.sh
