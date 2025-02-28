@@ -9,5 +9,11 @@ else
 fi
 
 # Install deps required for picamera Python packages.
-# sudo apt install -y python3-libcamera python3-kms++ libcap-dev
-$SUDO apt install -y python3-libcamera libcap-dev
+# Detect if running on a Raspberry Pi or not.
+if [ -f /etc/os-release ]; then
+  if [ "$(cat /etc/os-release)" == "raspbian" ]; then
+    $SUDO apt install -y python3-libcamera python3-kms++ libcap-dev
+  else
+    $SUDO apt install -y python3-libcamera libcap-dev
+  fi
+fi

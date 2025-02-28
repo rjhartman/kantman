@@ -1,5 +1,5 @@
 # Base Image
-FROM ubuntu:24.04
+FROM ubuntu:latest
 
 # Copy project to working directory and CD to it
 COPY . /kantman
