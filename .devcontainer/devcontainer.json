@@ -1,0 +1,29 @@
+{
+	"name": "Kantman",
+	"build": {
+		"dockerfile": "../Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"aaron-bond.better-comments",
+				"bibhasdn.unique-lines",
+				"charliermarsh.ruff",
+				"christian-kohler.path-intellisense",
+				"earshinov.permute-lines",
+				"EditorConfig.EditorConfig",
+				"foxundermoon.shell-format",
+				"mikestead.dotenv",
+				"ms-azuretools.vscode-docker",
+				"ms-python.mypy-type-checker",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-vscode.makefile-tools",
+				"redhat.vscode-yaml",
+				"tamasfe.even-better-toml",
+				"timonwong.shellcheck",
+				"yzhang.markdown-all-in-one"
+			]
+		}
+	}
+}
